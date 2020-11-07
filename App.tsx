@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, StatusBar, Text } from 'react-native';
+import {SafeAreaView, View, StatusBar, Text} from 'react-native';
 
 const App = () => {
   return (
