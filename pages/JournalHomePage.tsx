@@ -4,7 +4,7 @@ import {View, Text, SafeAreaView} from 'react-native';
 const JournalHomePage = () => {
   return (
     <SafeAreaView>
-      <View>
+      <View testID="journalHomePage">
         <Text>Journal Home Page</Text>
       </View>
     </SafeAreaView>

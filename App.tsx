@@ -16,7 +16,7 @@ const App = () => {
       <NavigationContainer>
         <Tab.Navigator>
           <Tab.Screen
-            name="Journal"
+            name="journal"
             component={JournalHomePage}
             options={{
               tabBarLabel: ({color}) => (
@@ -25,10 +25,11 @@ const App = () => {
               tabBarIcon: ({size, color}) => (
                 <Icon name="library-books" size={size} color={color} />
               ),
+              tabBarTestID: 'tabScreenJournal',
             }}
           />
           <Tab.Screen
-            name="Session"
+            name="session"
             component={SessionHomePage}
             options={{
               tabBarLabel: ({color}) => (
@@ -37,10 +38,11 @@ const App = () => {
               tabBarIcon: ({size, color}) => (
                 <Icon name="create" size={size} color={color} />
               ),
+              tabBarTestID: 'tabScreenSession',
             }}
           />
           <Tab.Screen
-            name="Preparation"
+            name="preparation"
             component={PreparationHomePage}
             options={{
               tabBarLabel: ({color}) => (
@@ -49,6 +51,7 @@ const App = () => {
               tabBarIcon: ({size, color}) => (
                 <Icon name="build" size={size} color={color} />
               ),
+              tabBarTestID: 'tabScreenPreparation',
             }}
           />
         </Tab.Navigator>

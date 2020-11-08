@@ -4,7 +4,7 @@ import {View, Text, SafeAreaView} from 'react-native';
 const SessionHomePage = () => {
   return (
     <SafeAreaView>
-      <View>
+      <View testID="sessionHomePage">
         <Text>Session Home Page</Text>
       </View>
     </SafeAreaView>
