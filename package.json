@@ -62,8 +62,10 @@
     ]
   },
   "rnpm": {
-    "assets": ["assets/fonts/Roboto"]
-   },
+    "assets": [
+      "assets/fonts/Roboto"
+    ]
+  },
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint",

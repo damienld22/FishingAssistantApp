@@ -1,5 +1,9 @@
 {
+  "bookmarks": "Mes favoris",
   "createSession": "Nouvelle session",
+  "fishingList": "Liste de pêche",
+  "fishingRigs": "Mes montages",
+  "shoppingList": "Liste de course",
   "tabTitleJournal": "Journal",
   "tabTitlePreparation": "Préparation",
   "tabTitleSession": "Session"
