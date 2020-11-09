@@ -1,6 +1,10 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {Button, Icon, colors, Text} from 'react-native-elements';
+import {
+  StyleSheet,
+  TouchableOpacity,
+  GestureResponderEvent,
+} from 'react-native';
+import {Icon, colors, Text} from 'react-native-elements';
 
 const SIZE_ICON = 60;
 
@@ -8,20 +12,17 @@ const IconWithBottomText = ({
   icon,
   text,
   type = 'material',
+  onPress = () => {},
 }: {
   icon: string;
   text: string;
   type?: string;
+  onPress?: (event: GestureResponderEvent) => void;
 }) => (
-  <View style={styles.container}>
-    <Button
-      type="clear"
-      icon={
-        <Icon name={icon} size={SIZE_ICON} type={type} color={colors.primary} />
-      }
-    />
+  <TouchableOpacity style={styles.container} onPress={onPress}>
+    <Icon name={icon} size={SIZE_ICON} type={type} color={colors.primary} />
     <Text style={styles.text}>{text}</Text>
-  </View>
+  </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({

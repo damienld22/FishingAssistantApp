@@ -1,9 +1,26 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {View, SafeAreaView, StyleSheet} from 'react-native';
+import {colors} from 'react-native-elements';
+import {
+  createStackNavigator,
+  StackNavigationProp,
+} from '@react-navigation/stack';
 import IconWithBottomText from '../components/shared/IconWithBottomText';
+import {FishingListPage} from './index';
 
-const PreparationHomePage = () => {
+type PreparationStackParamList = {
+  Home: undefined;
+  FishingList: undefined;
+};
+
+const PreparationStack = createStackNavigator<PreparationStackParamList>();
+
+const HomeScreen = ({
+  navigation,
+}: {
+  navigation: StackNavigationProp<PreparationStackParamList, 'Home'>;
+}) => {
   const {t} = useTranslation();
 
   return (
@@ -11,7 +28,11 @@ const PreparationHomePage = () => {
       <View testID="preparationHomePage" style={styles.containerLine}>
         <View style={styles.line}>
           <IconWithBottomText icon="shopping-cart" text={t('shoppingList')} />
-          <IconWithBottomText icon="list" text={t('fishingList')} />
+          <IconWithBottomText
+            icon="list"
+            text={t('fishingList')}
+            onPress={() => navigation.navigate('FishingList')}
+          />
         </View>
         <View style={styles.line}>
           <IconWithBottomText icon="anchor" text={t('fishingRigs')} />
@@ -19,6 +40,31 @@ const PreparationHomePage = () => {
         </View>
       </View>
     </SafeAreaView>
+  );
+};
+
+const PreparationHomePage = () => {
+  const {t} = useTranslation();
+
+  return (
+    <PreparationStack.Navigator>
+      <PreparationStack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{header: () => null}}
+      />
+      <PreparationStack.Screen
+        name="FishingList"
+        component={FishingListPage}
+        options={{
+          title: t('titlePageFishingList'),
+          headerStyle: {
+            backgroundColor: colors.primary,
+          },
+          headerTintColor: '#fff',
+        }}
+      />
+    </PreparationStack.Navigator>
   );
 };
 
