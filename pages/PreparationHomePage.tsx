@@ -28,10 +28,13 @@ const styles = StyleSheet.create({
   },
   containerLine: {
     flex: 1,
-    padding: 50,
+    padding: 40,
+    paddingTop: 100,
+    paddingBottom: 100,
     justifyContent: 'space-evenly',
   },
   line: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
