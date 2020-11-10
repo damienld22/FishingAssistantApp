@@ -11,12 +11,19 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useTranslation} from 'react-i18next';
 import useAuthentication from './hooks/AuthenticationHandler';
+import DisconnectionButton from './components/shared/DisconnectionButton';
 
 const Tab = createBottomTabNavigator();
 
 const App = () => {
   const {t} = useTranslation();
-  const {token, error, isLoading, handleAuthentication} = useAuthentication();
+  const {
+    token,
+    error,
+    isLoading,
+    handleAuthentication,
+    handleDisconnection,
+  } = useAuthentication();
 
   return (
     <>
@@ -26,7 +33,6 @@ const App = () => {
           <Tab.Navigator>
             <Tab.Screen
               name="journal"
-              component={JournalHomePage}
               options={{
                 tabBarLabel: ({color}) => (
                   <Text style={{color}}>{t('tabTitleJournal')}</Text>
@@ -35,11 +41,18 @@ const App = () => {
                   <Icon name="library-books" size={size} color={color} />
                 ),
                 tabBarTestID: 'tabScreenJournal',
-              }}
-            />
+              }}>
+              {() => (
+                <>
+                  <DisconnectionButton
+                    handleDisconnection={handleDisconnection}
+                  />
+                  <JournalHomePage />
+                </>
+              )}
+            </Tab.Screen>
             <Tab.Screen
               name="session"
-              component={SessionHomePage}
               options={{
                 tabBarLabel: ({color}) => (
                   <Text style={{color}}>{t('tabTitleSession')}</Text>
@@ -48,11 +61,18 @@ const App = () => {
                   <Icon name="create" size={size} color={color} />
                 ),
                 tabBarTestID: 'tabScreenSession',
-              }}
-            />
+              }}>
+              {() => (
+                <>
+                  <DisconnectionButton
+                    handleDisconnection={handleDisconnection}
+                  />
+                  <SessionHomePage />
+                </>
+              )}
+            </Tab.Screen>
             <Tab.Screen
               name="preparation"
-              component={PreparationHomePage}
               options={{
                 tabBarLabel: ({color}) => (
                   <Text style={{color}}>{t('tabTitlePreparation')}</Text>
@@ -61,8 +81,16 @@ const App = () => {
                   <Icon name="build" size={size} color={color} />
                 ),
                 tabBarTestID: 'tabScreenPreparation',
-              }}
-            />
+              }}>
+              {() => (
+                <>
+                  <DisconnectionButton
+                    handleDisconnection={handleDisconnection}
+                  />
+                  <PreparationHomePage />
+                </>
+              )}
+            </Tab.Screen>
           </Tab.Navigator>
         </NavigationContainer>
       ) : (
@@ -76,7 +104,7 @@ const App = () => {
   );
 };
 
-function isAuthenticated(token: string) {
+function isAuthenticated(token: string | null) {
   return token && token.length > 0;
 }
 

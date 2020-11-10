@@ -36,6 +36,7 @@ const LoginPage = ({
         secureTextEntry={true}
         onChangeText={setPassword}
         errorMessage={error ? t('authenticationError') : ''}
+        autoCapitalize={'none'}
         leftIcon={{type: 'material', name: 'lock', color: colors.primary}}
       />
 

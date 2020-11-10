@@ -19,9 +19,6 @@ To purpose of this project is to create a mobile application to help me during m
 
 ## Roadmap
 
-- [ ] Login page
-- [ ] Do authentication
-- [ ] Disconnection button
 - [ ] Save connected user
 - [ ] Put an icon
 - [ ] Do a loader with fish icon
