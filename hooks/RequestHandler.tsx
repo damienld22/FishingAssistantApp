@@ -2,23 +2,25 @@ import {useState} from 'react';
 import axios, {AxiosRequestConfig} from 'axios';
 import {BASE_URL} from '../utils';
 
-const useRequestHandler = () => {
-  const [isLoading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState(null);
+const useRequest = () => {
+  const [isLoading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<number | null>(null);
+  const [result, setResult] = useState<any>(null);
 
   const handleRequest = ({
     url,
     method,
+    data,
     token,
   }: {
     url: AxiosRequestConfig['url'];
     method: AxiosRequestConfig['method'];
+    data?: AxiosRequestConfig['data'];
     token?: string;
   }) => {
     setLoading(true);
     setError(null);
-    setData(null);
+    setResult(null);
 
     const headers = {} as AxiosRequestConfig['headers'];
 
@@ -34,17 +36,15 @@ const useRequestHandler = () => {
       baseURL: BASE_URL,
       method,
       url,
-      headers:
-        method?.toLowerCase() === 'post'
-          ? {Authorization: `Bearer ${token}`}
-          : {},
+      data,
+      headers,
     })
-      .then(({data: result}) => setData(result))
+      .then(({data: resultReq}) => setResult(resultReq))
       .catch((err) => setError(err.response.status))
       .finally(() => setLoading(false));
   };
 
-  return {isLoading, error, data, handleRequest};
+  return {isLoading, error, data: result, handleRequest};
 };
 
 function requestNeedTokenAuthorization(token?: string) {
@@ -55,4 +55,4 @@ function needApplicationJsonContentType(method?: AxiosRequestConfig['method']) {
   return method && ['post', 'put', 'patch'].includes(method?.toLowerCase());
 }
 
-export default useRequestHandler;
+export default useRequest;

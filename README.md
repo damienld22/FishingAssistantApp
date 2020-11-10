@@ -19,7 +19,10 @@ To purpose of this project is to create a mobile application to help me during m
 
 ## Roadmap
 
-- [ ] 3 tabs (Journal, fishing session, preparation) with testing
-- [ ] i18n
+- [ ] Login page
+- [ ] Do authentication
+- [ ] Disconnection button
+- [ ] Save connected user
 - [ ] Put an icon
+- [ ] Do a loader with fish icon
 - [ ] Add a splashscreen

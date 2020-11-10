@@ -1,4 +1,7 @@
 {
+  "authenticationError": "Mauvais nom d'utilisateur ou mot de passe",
+  "authenticationLoginButton": "Se connecter",
+  "authenticationTitle": "Connexion",
   "bookmarks": "Mes favoris",
   "caughtFish": "Mes prises",
   "createSession": "Nouvelle session",
@@ -10,6 +13,8 @@
   "titlePageSession": "Session",
   "myLocations": "Mes lieux de pêche",
   "mySessions": "Mes sessions",
+  "placeholderPassword": "Mot de passe",
+  "placeholderUsername": "Nom d'utilisateur",
   "shoppingList": "Liste de course",
   "tabTitleJournal": "Journal",
   "tabTitlePreparation": "Préparation",
