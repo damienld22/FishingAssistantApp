@@ -23,6 +23,7 @@ const LoginPage = ({
       <Input
         placeholder={t('placeholderUsername')}
         onChangeText={setUsername}
+        autoCapitalize={'none'}
         leftIcon={{
           type: 'material',
           name: 'account-circle',
