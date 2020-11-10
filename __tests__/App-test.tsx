@@ -4,6 +4,17 @@ import App from '../App';
 import {render, fireEvent} from '@testing-library/react-native';
 import {act} from 'react-test-renderer';
 
+jest.mock('../hooks/AuthenticationHandler', () => ({
+  __esModule: true,
+  default: () => ({
+    token: 'a',
+    error: null,
+    isLoading: false,
+    handleAuthentication: jest.fn(),
+    handleDisconnection: jest.fn(),
+  }),
+}));
+
 it('renders correctly', async () => {
   const {queryByTestId} = render(<App />);
   await checkAllTabScreenExists(queryByTestId);
