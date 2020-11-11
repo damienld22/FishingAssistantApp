@@ -1,5 +1,5 @@
 import {act, renderHook} from '@testing-library/react-hooks';
-import useRequest from '../../hooks/RequestHandler';
+import {useRequest} from '../../hooks/RequestHandler';
 import mockAxios from 'jest-mock-axios';
 import {BASE_URL} from '../../utils';
 

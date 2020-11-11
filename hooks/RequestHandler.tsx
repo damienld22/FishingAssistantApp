@@ -55,4 +55,4 @@ function needApplicationJsonContentType(method?: AxiosRequestConfig['method']) {
   return method && ['post', 'put', 'patch'].includes(method?.toLowerCase());
 }
 
-export default useRequest;
+export {useRequest};

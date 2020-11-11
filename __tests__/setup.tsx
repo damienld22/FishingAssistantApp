@@ -20,5 +20,6 @@ jest.mock('react-i18next', () => ({
     };
   },
 }));
+
 jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
 jest.mock('@react-native-async-storage/async-storage', () => mockAsyncStorage);

@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import useRequest from './RequestHandler';
+import {useRequest} from './RequestHandler';
 
 interface AuthenticationEntry {
   login: string;
