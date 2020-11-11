@@ -19,7 +19,8 @@ To purpose of this project is to create a mobile application to help me during m
 
 ## Roadmap
 
-- [ ] Save connected user
+- [ ] Add unit tests for authentication and disconnection and save token in local storage
+- [ ] Use Context API to share token
 - [ ] Put an icon
 - [ ] Do a loader with fish icon
 - [ ] Add a splashscreen
