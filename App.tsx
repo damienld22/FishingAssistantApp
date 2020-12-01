@@ -2,12 +2,10 @@ import React, {createContext} from 'react';
 import {StatusBar, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {
-  JournalHomePage,
-  PreparationHomePage,
-  SessionHomePage,
-  LoginPage,
-} from './pages';
+import JournalHomePage from './pages/JournalHomePage';
+import PreparationHomePage from './pages/PreparationHomePage';
+import SessionHomePage from './pages/SessionHomePage';
+import LoginPage from './pages/LoginPage';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useTranslation} from 'react-i18next';
 import useAuthentication from './hooks/AuthenticationHandler';

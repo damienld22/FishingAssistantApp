@@ -22,7 +22,9 @@ const useAuthenticationHandler = () => {
 
   useEffect(() => {
     setToken(data?.access_token);
-    AsyncStorage.setItem(KEY_TOKEN, data?.access_token);
+    if (data?.access_token) {
+      AsyncStorage.setItem(KEY_TOKEN, data?.access_token);
+    }
   }, [data]);
 
   const handleAuthentication = (authenticationEntry: AuthenticationEntry) => {
@@ -31,7 +33,7 @@ const useAuthenticationHandler = () => {
 
   const handleDisconnection = () => {
     setToken(null);
-    AsyncStorage.setItem(KEY_TOKEN, '');
+    AsyncStorage.removeItem(KEY_TOKEN);
   };
 
   return {

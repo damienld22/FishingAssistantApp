@@ -7,11 +7,13 @@ import {
   StackNavigationProp,
 } from '@react-navigation/stack';
 import IconWithBottomText from '../components/shared/IconWithBottomText';
-import {FishingListPage} from './index';
+import FishingListPage from './FishingListPage';
+import PurchaseListPage from './PurchaseList';
 
 type PreparationStackParamList = {
   Home: undefined;
   FishingList: undefined;
+  PurchaseListPage: undefined;
 };
 
 const PreparationStack = createStackNavigator<PreparationStackParamList>();
@@ -27,7 +29,11 @@ const HomeScreen = ({
     <SafeAreaView style={styles.container}>
       <View testID="preparationHomePage" style={styles.containerLine}>
         <View style={styles.line}>
-          <IconWithBottomText icon="shopping-cart" text={t('shoppingList')} />
+          <IconWithBottomText
+            icon="shopping-cart"
+            text={t('shoppingList')}
+            onPress={() => navigation.navigate('PurchaseListPage')}
+          />
           <IconWithBottomText
             icon="list"
             text={t('fishingList')}
@@ -58,6 +64,17 @@ const PreparationHomePage = () => {
         component={FishingListPage}
         options={{
           title: t('titlePageFishingList'),
+          headerStyle: {
+            backgroundColor: colors.primary,
+          },
+          headerTintColor: '#fff',
+        }}
+      />
+      <PreparationStack.Screen
+        name="PurchaseListPage"
+        component={PurchaseListPage}
+        options={{
+          title: t('titlePagePurchaseListPage'),
           headerStyle: {
             backgroundColor: colors.primary,
           },

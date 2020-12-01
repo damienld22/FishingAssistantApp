@@ -16,7 +16,7 @@ const useRequest = () => {
     url: AxiosRequestConfig['url'];
     method: AxiosRequestConfig['method'];
     data?: AxiosRequestConfig['data'];
-    token: string | null;
+    token?: string | null;
   }) => {
     setLoading(true);
     setError(null);
@@ -47,7 +47,7 @@ const useRequest = () => {
   return {isLoading, error, data: result, handleRequest};
 };
 
-function requestNeedTokenAuthorization(token: string | null) {
+function requestNeedTokenAuthorization(token?: string | null) {
   return !!token;
 }
 
