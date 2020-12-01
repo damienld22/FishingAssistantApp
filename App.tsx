@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {createContext} from 'react';
 import {StatusBar, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -14,7 +14,7 @@ import useAuthentication from './hooks/AuthenticationHandler';
 import DisconnectionButton from './components/shared/DisconnectionButton';
 
 const Tab = createBottomTabNavigator();
-
+const TokenContext = createContext<string | null>(null);
 const App = () => {
   const {t} = useTranslation();
   const {
@@ -43,12 +43,12 @@ const App = () => {
                 tabBarTestID: 'tabScreenJournal',
               }}>
               {() => (
-                <>
+                <TokenContext.Provider value={token}>
                   <DisconnectionButton
                     handleDisconnection={handleDisconnection}
                   />
                   <JournalHomePage />
-                </>
+                </TokenContext.Provider>
               )}
             </Tab.Screen>
             <Tab.Screen
@@ -63,12 +63,12 @@ const App = () => {
                 tabBarTestID: 'tabScreenSession',
               }}>
               {() => (
-                <>
+                <TokenContext.Provider value={token}>
                   <DisconnectionButton
                     handleDisconnection={handleDisconnection}
                   />
                   <SessionHomePage />
-                </>
+                </TokenContext.Provider>
               )}
             </Tab.Screen>
             <Tab.Screen
@@ -83,12 +83,12 @@ const App = () => {
                 tabBarTestID: 'tabScreenPreparation',
               }}>
               {() => (
-                <>
+                <TokenContext.Provider value={token}>
                   <DisconnectionButton
                     handleDisconnection={handleDisconnection}
                   />
                   <PreparationHomePage />
-                </>
+                </TokenContext.Provider>
               )}
             </Tab.Screen>
           </Tab.Navigator>
@@ -109,3 +109,4 @@ function isAuthenticated(token: string | null) {
 }
 
 export default App;
+export {TokenContext};
