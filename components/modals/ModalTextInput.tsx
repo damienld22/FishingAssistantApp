@@ -22,16 +22,18 @@ export default function ModalTextInput({
   return (
     <View style={styles.container}>
       <Modal animationType="slide" transparent={true} visible={isVisible}>
-        <View style={styles.modalView}>
-          <Text h4>{title}</Text>
-          <Input
-            placeholder={t('element')}
-            style={styles.input}
-            onChangeText={setValue}
-          />
-          <View style={styles.buttons}>
-            <ValidateButton onPress={() => onValidate(value)} />
-            <CancelButton onPress={() => onCancel()} />
+        <View style={styles.containerModal}>
+          <View style={styles.modalView}>
+            <Text h4>{title}</Text>
+            <Input
+              placeholder={t('element')}
+              style={styles.input}
+              onChangeText={setValue}
+            />
+            <View style={styles.buttons}>
+              <ValidateButton onPress={() => onValidate(value)} />
+              <CancelButton onPress={() => onCancel()} />
+            </View>
           </View>
         </View>
       </Modal>
@@ -43,10 +45,15 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 2,
   },
   input: {
     width: 200,
     marginTop: 20,
+  },
+  containerModal: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
   },
   modalView: {
     marginTop: 'auto',
