@@ -1,11 +1,15 @@
 {
+  "add": "Ajouter",
+  "addPurchaseItem": "Ajouter un élément",
   "authenticationError": "Mauvais nom d'utilisateur ou mot de passe",
   "authenticationLoginButton": "Se connecter",
   "authenticationTitle": "Connexion",
   "authenticationValidateDisconnection": "Voulez-vous vraiment vous déconnecter ?",
   "bookmarks": "Mes favoris",
+  "cancel": "Annuler",
   "caughtFish": "Mes prises",
   "createSession": "Nouvelle session",
+  "element": "Élément",
   "fishingList": "Liste de pêche",
   "fishingRigs": "Mes montages",
   "titlePageFishingList": "Liste de pêche",
@@ -22,5 +26,6 @@
   "tabTitleJournal": "Journal",
   "tabTitlePreparation": "Préparation",
   "tabTitleSession": "Session",
+  "validate": "Valider",
   "yes": "Oui"
 }

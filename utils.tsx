@@ -1,1 +1,3 @@
-export const BASE_URL = 'https://241.ip-92-222-68.eu/';
+export const KEY_STORAGE_PURCHASE_LIST = 'key-storage-purchase-list';
+export const SIZE_BIG_ICON = 60;
+export const SIZE_SMALL_ICON = 20;

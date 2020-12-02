@@ -5,8 +5,7 @@ import {
   GestureResponderEvent,
 } from 'react-native';
 import {Icon, colors, Text} from 'react-native-elements';
-
-const SIZE_ICON = 60;
+import {SIZE_BIG_ICON} from '../../utils';
 
 const IconWithBottomText = ({
   icon,
@@ -20,7 +19,7 @@ const IconWithBottomText = ({
   onPress?: (event: GestureResponderEvent) => void;
 }) => (
   <TouchableOpacity style={styles.container} onPress={onPress}>
-    <Icon name={icon} size={SIZE_ICON} type={type} color={colors.primary} />
+    <Icon name={icon} size={SIZE_BIG_ICON} type={type} color={colors.primary} />
     <Text style={styles.text}>{text}</Text>
   </TouchableOpacity>
 );
